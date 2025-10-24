@@ -1,2 +1,4 @@
-# Coffee-shop-Website-Foodiology
-A modern and responsive Coffee Shop Website built with HTML, CSS, and JavaScript — featuring a sleek design, menu showcase, and smooth navigation for an engaging user experience.
+# Responsive Coffee Shop Website Design
+### This design is inspired by the work of [Mr. Web Designer](https://www.youtube.com/@MrWebDesignerAnas). Click [here](https://youtu.be/52sKmRsk7xU) to watch the video.
+
+![preview img](/preview.png)

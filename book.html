@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Table</title>
+    <link rel="stylesheet" href="css/style.css"> <!-- Link to your custom CSS file -->
+    <style>
+        /* Add any additional styles for the virtual cafe view here */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            /* Background image */
+            background-image: url('image/book-bg.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .virtual-cafe {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .table {
+            width: 200px;
+            height: 200px;
+            background-color: #e0e0e0;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 24px;
+        }
+
+        .table:hover {
+            background-color: #ffcc00;
+        }
+
+        .table.selected {
+            background-color: #ffcc00;
+        }
+
+        .booking-form {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .booking-form input[type="text"],
+        .booking-form input[type="email"],
+        .booking-form input[type="date"],
+        .booking-form input[type="time"],
+        .booking-form textarea {
+            width: 100%;
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 18px;
+        }
+
+        .booking-form textarea {
+            height: 150px;
+        }
+
+        .booking-form input[type="submit"] {
+            background-color: #ffcc00;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 20px;
+        }
+
+        .booking-form input[type="submit"]:hover {
+            background-color: #e6b800;
+        }
+
+        .note {
+            color: #666;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Book a Table</h1>
+
+        <!-- Virtual Cafe View -->
+        <div class="virtual-cafe">
+            <div class="table" id="table1" onclick="selectTable('table1')">Table 1</div>
+            <div class="table" id="table2" onclick="selectTable('table2')">Table 2</div>
+            <div class="table" id="table3" onclick="selectTable('table3')">Table 3</div>
+            <div class="table" id="table4" onclick="selectTable('table4')">Table 4</div>
+            <div class="table" id="table5" onclick="selectTable('table5')">Table 5</div>
+            <div class="table" id="table6" onclick="selectTable('table6')">Table 6</div>
+            <div class="table" id="table7" onclick="selectTable('table7')">Table 7</div>
+            <div class="table" id="table8" onclick="selectTable('table8')">Table 8</div>
+            <div class="table" id="table9" onclick="selectTable('table9')">Table 9</div>
+            <!-- Add more tables as needed -->
+        </div>
+
+        <!-- Booking Form -->
+        <div class="booking-form">
+            <form onsubmit="return submitForm();" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <input type="date" name="date" required>
+                <input type="time" name="time" required>
+                <textarea name="preferences" placeholder="Any Additional Preferences"></textarea>
+                <input type="hidden" name="selected_table" id="selected-table"> <!-- Hidden input to store selected table -->
+                <input type="submit" value="Book Now">
+            </form>
+            <p class="note">Note: Each table has a maximum capacity of 4 seats.</p>
+        </div>
+    </div>
+
+    <script>
+        function selectTable(tableId) {
+            var table = document.getElementById(tableId);
+            var selectedTableInput = document.getElementById('selected-table');
+
+            // Toggle selected class to change appearance
+            if (table.classList.contains('selected')) {
+                table.classList.remove('selected');
+                selectedTableInput.value = ''; // Clear selected table value
+            } else {
+                // Remove 'selected' class from all tables
+                var tables = document.querySelectorAll('.table');
+                tables.forEach(function(table) {
+                    table.classList.remove('selected');
+                });
+
+                // Add 'selected' class to the clicked table
+                table.classList.add('selected');
+                selectedTableInput.value = tableId; // Store selected table ID
+            }
+        }
+
+        function submitForm() {
+            var name = document.getElementsByName("name")[0].value;
+            var email = document.getElementsByName("email")[0].value;
+            var date = document.getElementsByName("date")[0].value;
+            var time = document.getElementsByName("time")[0].value;
+
+            if (name && email && date && time) {
+                // Redirect to thank_you.html
+                window.location.href = "bookthank_you.html";
+                return false; // Prevent form submission
+            } else {
+                alert("Please fill in all required fields.");
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order</title>
+    <link rel="stylesheet" href="css/style.css"> <!-- Include your custom CSS file here -->
+    <style>
+        body {
+            background-image: url(image/book-bg.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div id="menu-btn" class="fas fa-bars"></div>
+
+        <a href="index.html" class="logo">Foodiology <i class="fas fa-mug-hot"></i></a>
+
+        <nav class="navbar">
+            <a href="index.html">home</a>
+            <a href="#about">about</a>
+            <a href="#menu">menu</a>
+            <a href="#review">review</a>
+            <a href="#">book</a>
+            <a href="#feedback">feedback</a> <!-- Added feedback link -->
+            <a href="#location">location</a> <!-- Added location link -->
+            <a href="#sneak-peek">sneak peek</a> <!-- Added sneak peek link -->
+        </nav>
+
+        <a href="order.html" class="btn">Order Now</a>
+    </header>
+
+    <h1>Order</h1>
+    <form id="orderForm" action="submit_order.php" method="POST" align="center">
+        <br><br>
+        <br><br>    
+        <label for="Name" align="center"><strong>Name:</strong></label>
+        <input type="text" id="Name" name="Name" required><br><br>
+
+
+        <label for="email" align="center"><strong>Email:</strong></label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="order" align="center"><strong>Order:</strong></label>
+        <select id="order" name="order" required align="center">
+            <option value="Latte">Latte</option>
+            <option value="Cappuccino">Cappuccino</option>
+            <option value="Americano">Americano</option>
+            <option value="Doppio">Doppio</option>
+            <option value="Lungo">Lungo</option>
+            <option value="Mocha">Mocha </option>
+            <option value="Macchiatos">Macchiatos</option>
+            <option value="Flat whites">Flat Whites</option>
+        </select><br><br>
+
+        <label for="customization"><strong>Customization:</strong></label><br>
+        <input type="checkbox" id="milk" name="customization" value="Milk">
+        <label for="milk">Add Milk</label><br>
+        <input type="checkbox" id="sugar" name="customization" value="Sugar">
+        <label for="sugar">Add Sugar</label><br>
+        <input type="checkbox" id="Chocolate" name="customization" value="Chocolate">
+        <label for="Chocolate">Chocolate</label><br>
+        <input type="checkbox" id="Cream Foam" name="customization" value="Cream Foam">
+        <label for="Cream Foam">Cream Foam</label><br>
+        <input type="checkbox" id="Honey" name="customization" value="Honey">
+        <label for="Honey">Honey</label><br>
+        <input type="checkbox" id="Vanilla Extract" name="customization" value="Vanilla Extract">
+        <label for="Vanilla Extract">Vanilla Extract</label><br>
+        <!-- Add more customization options as needed -->
+
+        <!-- Add hidden input field for payment -->
+        <input type="hidden" id="payment" name="payment" value="pending">
+
+        <!-- Submit button -->
+        <strong><input type="submit" value="Place Order"></strong>
+    </form>
+
+    <script>
+        document.getElementById("orderForm").addEventListener("submit", function(event) {
+            // Prevent the default form submission behavior
+            event.preventDefault();
+            
+            // Redirect to the next page
+            window.location.href = "next_page.html";
+        });
+    </script>
+</body>
+
+
+    <!-- FOOTER -->
+    <section class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3>our branches</h3>
+                <a href="#"><i class="fas fa-arrow-right"></i> Koparkhairane</a>
+                <a href="#"><i class="fas fa-arrow-right"></i> Thane</a>
+                <a href="#"><i class="fas fa-arrow-right"></i> Nerul</a>
+                <a href="#"><i class="fas fa-arrow-right"></i> Vashi</a>
+            </div>
+
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="index.html"><i class="fas fa-arrow-right"></i> home</a>
+                <a href="index.html#about"><i class="fas fa-arrow-right"></i> about</a>
+                <a href="index.html#menu"><i class="fas fa-arrow-right"></i> menu</a>
+                <a href="index.html#review"><i class="fas fa-arrow-right"></i> review</a>
+                <a href="index.html#book"><i class="fas fa-arrow-right"></i> book</a>
+                <a href="index.html#feedback"><i class="fas fa-arrow-right"></i> feedback</a> <!-- Added feedback link -->
+                <a href="index.html#location"><i class="fas fa-arrow-right"></i> location</a> <!-- Added location link -->
+                <a href="index.html#sneak-peek"><i class="fas fa-arrow-right"></i> sneak peek</a> <!-- Added sneak peek link -->
+            </div>
+
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#"><i class="fas fa-phone"></i> +91-9146068472</a>
+                <a href="#"><i class="fas fa-phone"></i> +92-9135675897</a>
+                <a href="#"><i class="fas fa-envelope"></i> foodiologycoffee@gmail.com</a>
+                <a href="#"><i class="fas fa-envelope"></i> Koparkhairane, Navi Mumbai</a>
+            </div>
+
+            <div class="box">
+                <h3>social media</h3>
+                <a href="https://www.facebook.com/Starbucks/" target="_blank"><i class="fab fa-facebook-f" ></i> facebook</a>
+                <a href="https://twitter.com/starbucks?lang=en" target="_blank"><i class="fab fa-twitter" ></i> X</a>
+                <a href="https://www.instagram.com/starbucks/" target="_blank"><i class="fab fa-instagram"></i> instagram</a>
+            </div>
+        </div>
+
+        <div class="credit">created by <span>Saish, Prerna, Varad & Navjot</span> | all rights reserved</div>
+    </section>
+
+    <!-- SWIPER -->
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+    <!-- Custom JS File Link  -->
+    <script src="js/order.js"></script> <!-- Include your custom JavaScript file here -->
+</body>
+
+</html>
