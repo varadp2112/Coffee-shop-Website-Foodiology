@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Payment Details</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9e4b7; /* Warm beige background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 90%; /* Adjust maximum width as needed */
+            padding: 20px;
+            border: 2px solid #9c6644;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px; /* Reduced font size */
+            color: #9c6644; /* Dark brown text color */
+            text-transform: uppercase;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px; /* Reduced margin */
+            font-size: 16px; /* Reduced font size */
+            color: #9c6644; /* Dark brown text color */
+        }
+
+        input[type="text"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 8px; /* Reduced padding */
+            margin-bottom: 10px; /* Reduced margin */
+            border: 1px solid #9c6644; /* Dark brown border */
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 14px; /* Reduced font size */
+            color: #444444; /* Dark gray text color */
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #9c6644; /* Dark brown background */
+            color: #ffffff; /* White text color */
+            font-size: 16px; /* Reduced font size */
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #7a4b2f; /* Darker brown on hover */
+        }
+
+        .payment-method h2 {
+            margin-top: 20px; /* Reduced margin */
+            margin-bottom: 10px; /* Reduced margin */
+            font-size: 20px; /* Reduced font size */
+            color: #9c6644; /* Dark brown text color */
+            text-align: center;
+        }
+
+        /* Bank logo styles */
+        .bank-logo {
+            width: 20px; /* Adjust the width as needed */
+            height: auto;
+            vertical-align: middle;
+            margin-right: 5px; /* Add some space between the logo and bank name */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Card Payment Details</h1>
+        <form action="cardthank_you.html" method="post" onsubmit="redirectToThankYou(event)">
+
+            <label for="card_number">Card Number:</label>
+            <input type="text" id="card_number" name="card_number" required>
+    
+            <label for="expiry_date">Expiry Date:</label>
+            <input type="text" id="expiry_date" name="expiry_date" placeholder="MM/YYYY" required>
+    
+            <label for="cvv">CVV:</label>
+            <input type="password" id="cvv" name="cvv" maxlength="3" required>
+    
+            <label for="card_type">Card Type:</label>
+            <select id="card_type" name="card_type">
+                <option value="visa">Visa</option>
+                <option value="mastercard">Mastercard</option>
+                <option value="rupay">RuPay</option>
+            </select>
+    
+            <label for="amount">Amount:</label>
+            <input type="text" id="amount" name="amount" placeholder="Enter amount" required>
+    
+            <input type="submit" value="Make Payment">
+        </form>
+
+        <div class="payment-method">
+            <h2>Net Banking</h2>
+            <form action="cardthank_you.html" method="post" onsubmit="redirectToThankYou(event)">
+
+                <label for="bank_name">Select Bank:</label>
+                <select id="bank_name" name="bank_name">
+                    <option value="sbi"><img class="bank-logo" src="image/sbi_logo.png" alt="SBI Logo">State Bank of India</option>
+                    <option value="icici"><img class="bank-logo" src="image/icici_logo.jpg" alt="ICICI Logo">ICICI Bank</option>
+                    <option value="hdfc"><img class="bank-logo" src="image/hdfc_logo.png" alt="HDFC Logo">HDFC Bank</option>
+                    <option value="boi"><img class="bank-logo" src="image/boi_logo.jpg" alt="BOI Logo">Bank of India</option>
+                    <option value="indns"><img class="bank-logo" src="image/indns_logo.png" alt="Indusind Logo">Indusind Bank</option>
+                    <option value="ubi"><img class="bank-logo" src="image/ubi_logo.png" alt="UBI Logo">Union Bank of India</option>
+                    <!-- Add more net banking options as needed -->
+                </select>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <input type="submit" value="Proceed">
+            </form>
+
+            <script>
+                function redirectToThankYou(event) {
+                    event.preventDefault(); // Prevent default form submission behavior
+                    window.location.href = "cardthank_you.html";
+                }
+            </script>
+            
+        </div>
+    </div>
+
+</body>
+
+</html>
